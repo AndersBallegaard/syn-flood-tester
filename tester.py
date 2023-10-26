@@ -32,11 +32,11 @@ def validation_none(target_ip, target_port, ipv6):
 
 @click.command()
 @click.option("--target-ip", prompt="Target IP", help="The ipv4/ipv6 address of the device under test", required=True)
-@click.option("--target-port", default=80, prompt="Target port", help="The TCP port to target")
-@click.option("--max-connections", default=1000, help="Max open TCP connections to device")
-@click.option("--interval", default=100, help="Interval between new connections in ms")
-@click.option("--validation-method", default="HTTP_GET", help="validation method to validate the service still works (Options: HTTP_GET, HTTPS_GET, none)")
-@click.option("--validation-interval", default=1, help="interval between validation checks")
+@click.option("--target-port", default=80, prompt="Target port", help="The TCP port to target (default: 80)")
+@click.option("--max-connections", default=1000, help="Max open TCP connections to device (default: 1000)")
+@click.option("--interval", default=100, help="Interval between new connections in ms (default: 100)")
+@click.option("--validation-method", default="HTTP_GET", help="validation method to validate the service still works (Options: HTTP_GET, HTTPS_GET, none) (default: HTTP_GET)")
+@click.option("--validation-interval", default=1, help="interval between validation checks (default: 1)")
 def synFloodController(target_ip, target_port, max_connections, interval, validation_method, validation_interval):
     # Validate target ip
     ipv6 = True
@@ -99,4 +99,4 @@ def synFloodController(target_ip, target_port, max_connections, interval, valida
 
 
 if __name__ == '__main__':
-    synFloodController()
+    synFloodController(max_content_width=120)

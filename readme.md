@@ -8,16 +8,22 @@ Please only use on services you own, and be aware there is a high probability th
 Usage: tester.py [OPTIONS]
 
 Options:
-  --target-ip TEXT               The ipv4/ipv6 address of the device under
-                                 test  [required]
-  --target-port INTEGER          The TCP port to target
-  --max-connections INTEGER      Max open TCP connections to device
-  --interval INTEGER             Interval between new connections in ms
-  --validation-method TEXT       validation method to validate the service
-                                 still works (Options: HTTP_GET, HTTPS_GET,
-                                 none)
-  --validation-interval INTEGER  interval between validation checks
+  --target-ip TEXT               The ipv4/ipv6 address of the device under test  [required]
+  --target-port INTEGER          The TCP port to target (default: 80)
+  --max-connections INTEGER      Max open TCP connections to device (default: 1000)
+  --interval INTEGER             Interval between new connections in ms (default: 100)
+  --validation-method TEXT       validation method to validate the service still works (Options: HTTP_GET, HTTPS_GET,
+                                 none) (default: HTTP_GET)
+  --validation-interval INTEGER  interval between validation checks (default: 1)
   --help                         Show this message and exit.
+```
+
+## Install
+```bash
+git clone https://github.com/AndersBallegaard/syn-flood-tester.git
+cd syn-flood-tester/
+pip3 install -r requirements.txt
+./tester.py --help
 ```
 
 
